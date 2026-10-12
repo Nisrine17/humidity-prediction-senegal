@@ -1,0 +1,75 @@
+Lignes brutes : 900 | après suppression des doublons : 765
+Dates distinctes : [datetime.date(2025, 10, 18), datetime.date(2025, 10, 19), datetime.date(2025, 10, 20), datetime.date(2025, 10, 23), datetime.date(2025, 10, 26)]
+
+===== Jeu de variables : avec_heure =====
+
+[Aléatoire 80/20]
+               model    MAE   RMSE     R2
+ Baseline (moyenne) 18.455 21.396 -0.013
+Régression linéaire  3.941  4.949  0.946
+              Ridge  3.936  4.930  0.946
+      Random Forest  3.249  4.630  0.953
+  Gradient Boosting  3.454  4.522  0.955
+            XGBoost  3.330  4.407  0.957
+
+[Temporelle - test 26 oct.]
+               model    MAE   RMSE     R2
+ Baseline (moyenne) 20.959 25.759 -0.607
+Régression linéaire  5.626  7.171  0.875
+              Ridge  5.692  7.312  0.871
+      Random Forest  9.195 11.085  0.702
+  Gradient Boosting  8.081  9.478  0.782
+            XGBoost  8.467 10.042  0.756
+
+[Une date laissée de côté]
+               model  MAE_mean  MAE_std  RMSE_mean  RMSE_std  R2_mean  R2_std
+              Ridge     4.954    1.036      6.166     1.231    0.843   0.085
+Régression linéaire     4.918    0.960      6.179     1.122    0.842   0.083
+            XGBoost     5.667    1.966      6.899     2.188    0.805   0.112
+  Gradient Boosting     5.898    1.852      7.238     2.021    0.783   0.122
+      Random Forest     6.336    2.036      8.074     2.406    0.731   0.151
+ Baseline (moyenne)    19.563    3.070     22.954     3.426   -1.153   1.057
+
+===== Jeu de variables : sans_heure =====
+
+[Aléatoire 80/20]
+               model    MAE   RMSE     R2
+ Baseline (moyenne) 18.455 21.396 -0.013
+Régression linéaire  3.810  4.927  0.946
+              Ridge  3.845  4.929  0.946
+      Random Forest  3.479  5.146  0.941
+  Gradient Boosting  3.747  4.769  0.950
+            XGBoost  3.330  4.251  0.960
+
+[Temporelle - test 26 oct.]
+               model    MAE   RMSE     R2
+ Baseline (moyenne) 20.959 25.759 -0.607
+Régression linéaire  5.632  7.190  0.875
+              Ridge  5.682  7.285  0.872
+      Random Forest  9.176 11.094  0.702
+  Gradient Boosting  8.712 10.232  0.747
+            XGBoost  7.717  9.251  0.793
+
+[Une date laissée de côté]
+               model  MAE_mean  MAE_std  RMSE_mean  RMSE_std  R2_mean  R2_std
+              Ridge     4.756    1.206      5.979     1.415    0.853   0.080
+Régression linéaire     4.775    1.191      6.067     1.316    0.848   0.082
+            XGBoost     5.579    1.968      6.813     2.264    0.802   0.127
+  Gradient Boosting     5.991    2.148      7.309     2.419    0.779   0.131
+      Random Forest     6.632    2.235      8.532     2.751    0.689   0.206
+ Baseline (moyenne)    19.563    3.070     22.954     3.426   -1.153   1.057
+
+>>> Sélection : Ridge (sans_heure) — meilleur RMSE moyen en validation par date
+
+[Diagnostic] Régression sur la température seule (validation par date) : {'MAE': 8.672, 'RMSE': 10.863, 'R2': 0.74}
+
+[Importance par permutation]
+     feature  importance_mean  importance_std
+temperature           10.221           0.445
+     region            3.940           0.257
+departement            2.693           0.158
+    weather            0.536           0.100
+ wind_speed            0.051           0.006
+
+Pipeline sauvegardé : /home/claude/humidity-prediction-senegal/models/humidity_pipeline.joblib
+Métadonnées        : /home/claude/humidity-prediction-senegal/models/metadata.json

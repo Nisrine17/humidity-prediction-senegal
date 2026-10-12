@@ -1,0 +1,172 @@
+{
+  "model_name": "Ridge",
+  "feature_set": "sans_heure",
+  "features": [
+    "region",
+    "departement",
+    "weather",
+    "temperature",
+    "wind_speed"
+  ],
+  "numeric_features": [
+    "temperature",
+    "wind_speed"
+  ],
+  "categorical_features": [
+    "region",
+    "departement",
+    "weather"
+  ],
+  "target": "humidity",
+  "region_to_departements": {
+    "Dakar": [
+      "Dakar",
+      "Guédiawaye",
+      "Pikine",
+      "Rufisque"
+    ],
+    "Diourbel": [
+      "Bambey",
+      "Diourbel",
+      "Mbacké"
+    ],
+    "Fatick": [
+      "Fatick",
+      "Foundiougne",
+      "Gossas"
+    ],
+    "Kaffrine": [
+      "Birkilane",
+      "Kaffrine",
+      "Koungheul",
+      "MalèmeHodar"
+    ],
+    "Kaolack": [
+      "Guinguinéo",
+      "Kaolack",
+      "NioroduRip"
+    ],
+    "Kolda": [
+      "Kolda",
+      "MédinaYoroFoula",
+      "Vélingara"
+    ],
+    "Kédougou": [
+      "Kédougou",
+      "Salémata",
+      "Saraya"
+    ],
+    "Louga": [
+      "Kébémer",
+      "Linguère",
+      "Louga"
+    ],
+    "Matam": [
+      "Kanel",
+      "Matam",
+      "RanérouFerlo"
+    ],
+    "Saint-Louis": [
+      "Dagana",
+      "Podor",
+      "Saint-Louis"
+    ],
+    "Sédhiou": [
+      "Bounkiling",
+      "Goudomp",
+      "Sédhiou"
+    ],
+    "Tambacounda": [
+      "Bakel",
+      "Goudiry",
+      "Koupentoum",
+      "Tambacounda"
+    ],
+    "Thiès": [
+      "Mbour",
+      "Thiès",
+      "Tivaouane"
+    ],
+    "Ziguinchor": [
+      "Bignona",
+      "Oussouye",
+      "Ziguinchor"
+    ]
+  },
+  "weather_categories": [
+    "broken clouds",
+    "clear sky",
+    "few clouds",
+    "light rain",
+    "moderate rain",
+    "overcast clouds",
+    "scattered clouds",
+    "thunderstorm with rain"
+  ],
+  "ranges": {
+    "temperature": [
+      21.05,
+      40.25
+    ],
+    "wind_speed": [
+      0.0,
+      9.26
+    ],
+    "hour": [
+      0,
+      23
+    ],
+    "humidity": [
+      12.0,
+      100.0
+    ]
+  },
+  "observed_hours": [
+    0,
+    1,
+    14,
+    18,
+    19,
+    20,
+    21,
+    23
+  ],
+  "n_observations": 765,
+  "n_dates": 5,
+  "dates": [
+    "2025-10-18",
+    "2025-10-19",
+    "2025-10-20",
+    "2025-10-23",
+    "2025-10-26"
+  ],
+  "validation": {
+    "leave_one_date_out": {
+      "MAE_mean": 4.7559,
+      "MAE_std": 1.2055,
+      "RMSE_mean": 5.9793,
+      "RMSE_std": 1.4146,
+      "R2_mean": 0.8526,
+      "R2_std": 0.0804
+    },
+    "temporal_split": {
+      "MAE": 5.6819,
+      "RMSE": 7.2847,
+      "R2": 0.8715
+    },
+    "random_split": {
+      "MAE": 3.8451,
+      "RMSE": 4.9291,
+      "R2": 0.9462
+    },
+    "temperature_only_linear_lodo": {
+      "MAE": 8.6717,
+      "RMSE": 10.8629,
+      "R2": 0.7402
+    }
+  },
+  "library_versions": {
+    "scikit-learn": "1.9.1"
+  },
+  "note": "Pipeline ré-entraîné sur l'ensemble des données (5 dates, octobre 2025). Estimation d'humidité à partir de mesures fournies, pas une prévision météo."
+}
